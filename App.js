@@ -1,6 +1,13 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
+class test {
+  constructor(props){
+    super(props);
+  }
+}
+
+
 export default class App extends React.Component {
   render() {
     return (
@@ -12,6 +19,8 @@ export default class App extends React.Component {
     );
   }
 }
+
+
 
 const styles = StyleSheet.create({
   container: {
