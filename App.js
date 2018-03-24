@@ -1,20 +1,18 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View,StatusBar,TextInput,Dimensions,Platform} from 'react-native';
 
-class test {
-  constructor(props){
-    super(props);
-  }
-}
-
+const {heigh,width} = Dimensions.get("window");
 
 export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
+        <StatusBar barStyle="light-content"/>
+        <Text style={styles.title}>Kawai To Do</Text>
+        <View style={styles.card}>
+          <TextInput style={styles.input} placeholder={"NEW To Do"} ></TextInput>
+
+        </View>
       </View>
     );
   }
@@ -25,8 +23,35 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#F23657',
     alignItems: 'center',
-    justifyContent: 'center',
+
   },
+  title:{
+    color:"white",
+    fontSize:30,
+    marginTop:70,
+    fontWeight:"200"
+  },
+  card:{
+    backgroundColor:"white",
+    flex:1,
+    width: width-25,
+    marginBottom : 30,
+    borderTopLeftRadius:10,
+    borderTopRightRadius:10,
+    ...Platform.select({
+      ios:{
+        shadowColor:"rgb(50,50,50)",
+        shadowOpacity:0.5,
+        shadowRadius:5,
+        shadowOffset:{
+          height:-1,
+          width:1
+        }
+
+      }
+    })
+
+  }
 });
